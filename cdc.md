@@ -1,4 +1,4 @@
-# Change Data Capture (CDC)
+# Change Data Capture (CDC) and using CDC to trigger CRMA Recipes
 
 
 - Streaming event 
@@ -239,10 +239,127 @@ sf mohanc streaming sub -u  mohan.chinnappan.n.ea10@gmail.com  -t  /data/Distrib
 ![CLI](img/cdc-cli-1.png)
 
 
+### More from CLI
+```
+sf mohanc streaming sub -u  mohan.chinnappan.n.ea10@gmail.com  -t  /data/Distributor__ChangeEvent
+
+```
+- CREATE
+```json
+{
+    "schema": "R5zq92JfedyvzEcBx9bE6g",
+    "payload": {
+        "LastModifiedDate": "2024-02-25T08:45:56.000Z",
+        "OwnerId": "005Hs00000BkK19IAF",
+        "CreatedById": "005Hs00000BkK19IAF",
+        "ChangeEventHeader": {
+            "commitNumber": 11640466190287,
+            "commitUser": "005Hs00000BkK19IAF",
+            "sequenceNumber": 1,
+            "entityName": "Distributor__c",
+            "changeType": "CREATE",
+            "changedFields": [],
+            "changeOrigin": "com/salesforce/api/soap/60.0;client=SfdcInternalAPI/",
+            "transactionKey": "00013ce5-bacf-4027-b4cf-c067857a54dd",
+            "commitTimestamp": 1708850756000,
+            "recordIds": [
+                "a02Hs0000179WZ2IAM"
+            ]
+        },
+        "CreatedDate": "2024-02-25T08:45:56.000Z",
+        "LastModifiedById": "005Hs00000BkK19IAF",
+        "Name": "Mistral7b"
+    },
+    "event": {
+        "replayId": 15529463
+    }
+}
+
+- UPDATE
+
+```json
+{
+    "schema": "R5zq92JfedyvzEcBx9bE6g",
+    "payload": {
+        "LastModifiedDate": "2024-02-25T08:46:44.000Z",
+        "ChangeEventHeader": {
+            "commitNumber": 11640466607976,
+            "commitUser": "005Hs00000BkK19IAF",
+            "sequenceNumber": 1,
+            "entityName": "Distributor__c",
+            "changeType": "UPDATE",
+            "changedFields": [
+                "Name",
+                "LastModifiedDate"
+            ],
+            "changeOrigin": "com/salesforce/api/soap/60.0;client=SfdcInternalAPI/",
+            "transactionKey": "00013cf0-cb61-dec0-e2bc-088707cf5744",
+            "commitTimestamp": 1708850804000,
+            "recordIds": [
+                "a02Hs0000179WZ2IAM"
+            ]
+        },
+        "Name": "Mistral-7b"
+    },
+    "event": {
+        "replayId": 15529464
+    }
+}
+
+
+```
+
+## CRMA Recipes
+
+### Listing the recipes
+```
+  sf mohanc ea recipe list -u mohan.chinnappan.n.ea10@gmail.com  
+```
+
+---
+
+```csv
+"05vHs000000gHCiIAM","account_csv","R3"
+"05vHs000000gH2pIAE","mc1","R3
+```
+
+### Start a Dataflow Job or Recipe
+- To start a dataflow or recipe, use the /wave/dataflowjobs endpoint with a POST request. In the POST request body, use the dataflowId parameter to specify the dataflow to start. For a recipe, use the targetDataflowId value for the dataflowId
+
+
+![Recipe](img/recipe-csv1.png)
+- Running by POSTing
+![Run Recipe](img/run-recipe-onnu.png)
+- Run Status
+![Recipe](img/recipe-run-1.png)
+- Run Details
+![Recipe](img/recipe-run-details-1.png)
+
+
+
+
+
+```
+ sf mohanc ea dataflow jobs list -u mohan.chinnappan.n.ea10@gmail.com  
+```
+
+```csv
+Id,Label,jobType,type,status,progress,startDate,executedDate, duration(secs)
+"0ePHs000000iQy9MAE","account-csv_recipe","recipe_v3","dataflowjob","Success","1","2024-02-25T09:02:20.000Z","2024-02-25T09:02:22.000Z","68"
+"0ePHs000000iQebMAE","mc1_recipe","recipe_v3","dataflowjob","Failure","0","2024-02-23T08:00:02.000Z","undefined","undefined"
+"0ePHs000000iQZbMAM","mc1_recipe","recipe_v3","dataflowjob","Failure","0","2024-02-22T08:00:02.000Z","undefined","undefined"
+"0ePHs000000iQUWMA2","mc1_recipe","recipe_v3","dataflowjob","Failure","0","2024-02-21T08:00:02.000Z","undefined","undefined"
+```
+
+
 ## References
 
+### Core
 - [What is Change Data Capture?](https://developer.salesforce.com/blogs/2018/08/what-is-change-data-capture)
 - [CDC Guide](https://developer.salesforce.com/docs/atlas.en-us.change_data_capture.meta/change_data_capture/cdc_intro.htm)
 - [CDC Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.248.0.change_data_capture.meta/change_data_capture/cdc_intro.htm)
 - [Subscribe to an Event Channel](https://trailhead.salesforce.com/content/learn/modules/change-data-capture/subscribe-to-events)
 - [Streaming API Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.api_streaming.meta/api_streaming/code_sample_java_client_intro.htm)
+
+### CRMA
+- [CRM Analytics REST API Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.bi_dev_guide_rest.meta/bi_dev_guide_rest/bi_run_schedule_sync_data.htm?q=recipe)

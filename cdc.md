@@ -7,6 +7,13 @@
 - [CRMA Recipes](#crma-recipes)
 
 
+## Goals
+
+![goals](img/crma-recipe-run.png)
+
+----
+
+
 <a name='cdc'></a>
 - Streaming event 
 

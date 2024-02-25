@@ -1,6 +1,13 @@
 # Change Data Capture (CDC) and using CDC to trigger CRMA Recipes
 
+## Topics
+- [ CDC](#cdc)
+    - [Using EMP - Enterprise Messaging Platform ](#emp)
+    - [Using CLI](#cdc-cli)
+- [CRMA](#crma)
 
+
+<a name='cdc'></a>
 - Streaming event 
 
 - Notification that Salesforce sends when a change to a Salesforce record occurs as part of a create, update, delete, or undelete operation.
@@ -87,8 +94,7 @@ The app can inspect the transactionKey and isTransactionEnd header fields in the
     - deleted,
     - undeleted records. 
 - All custom objects and a subset of standard objects are supported.
-
-
+<a name='EMP'></a>
 ## Using EMP (Enterprise Messaging Platform) Connector
 - EMP Connector is a thin wrapper around the CometD library. It hides the complexity of creating a CometD client and subscribing to Streaming API in Java
 - The CometD-based subscription mechanism in EMP Connector can receive any type of Salesforce event.
@@ -196,6 +202,7 @@ Received:
 }
 ```
 
+<a name='cdc-cli'></a>
 ### Using CLI
 
 ```
@@ -274,6 +281,7 @@ sf mohanc streaming sub -u  mohan.chinnappan.n.ea10@gmail.com  -t  /data/Distrib
         "replayId": 15529463
     }
 }
+```
 
 - UPDATE
 

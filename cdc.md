@@ -196,6 +196,47 @@ Received:
 }
 ```
 
+### Using CLI
+
+```
+
+
+sf mohanc streaming sub -u  mohan.chinnappan.n.ea10@gmail.com  -t  /data/Distributor__ChangeEvent
+```
+
+```json
+{
+    "schema": "R5zq92JfedyvzEcBx9bE6g",
+    "payload": {
+        "LastModifiedDate": "2024-02-25T03:34:02.000Z",
+        "OwnerId": "005Hs00000BkK19IAF",
+        "CreatedById": "005Hs00000BkK19IAF",
+        "ChangeEventHeader": {
+            "commitNumber": 11640290483534,
+            "commitUser": "005Hs00000BkK19IAF",
+            "sequenceNumber": 1,
+            "entityName": "Distributor__c",
+            "changeType": "CREATE",
+            "changedFields": [],
+            "changeOrigin": "com/salesforce/api/soap/60.0;client=SfdcInternalAPI/",
+            "transactionKey": "00012bf4-4444-5441-1180-b20f7074c9d5",
+            "commitTimestamp": 1708832042000,
+            "recordIds": [
+                "a02Hs0000179WYsIAM"
+            ]
+        },
+        "CreatedDate": "2024-02-25T03:34:02.000Z",
+        "LastModifiedById": "005Hs00000BkK19IAF",
+        "Name": "Gemma"
+    },
+    "event": {
+        "replayId": 15529408
+    }
+}
+
+```
+
+![CLI](img/cdc-cli-1.png)
 
 
 ## References

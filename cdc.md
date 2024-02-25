@@ -4,7 +4,7 @@
 - [ CDC](#cdc)
     - [Using EMP - Enterprise Messaging Platform ](#emp)
     - [Using CLI](#cdc-cli)
-- [CRMA](#crma)
+- [CRMA Recipes](#crma-recipes)
 
 
 <a name='cdc'></a>
@@ -317,7 +317,7 @@ sf mohanc streaming sub -u  mohan.chinnappan.n.ea10@gmail.com  -t  /data/Distrib
 
 ```
 
-<a name='crma'></a>
+<a name='crma-recipes'></a>
 
 ## CRMA Recipes
 

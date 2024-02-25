@@ -339,7 +339,57 @@ sf mohanc streaming sub -u  mohan.chinnappan.n.ea10@gmail.com  -t  /data/Distrib
 
 ![Recipe](img/recipe-csv1.png)
 - Running by POSTing
-![Run Recipe](img/run-recipe-onnu.png)
+![Run Recipe](img/run-recipe-onnu2.png)
+
+```json
+{
+    "method": "POST",
+    "tooling": false,
+    "url": "wave/dataflowjobs",
+    "sfdc": true,
+    "Content-Type": "application/json",
+    "data": {
+        "targetDataflowId": "05vHs000000gHCiIAM",
+        "command" : "start"
+    }
+    
+}
+```
+
+```json
+
+{
+    "dataflowJobs": [
+        {
+            "createdDate": "2024-02-25T09:02:20.000Z",
+            "duration": 68,
+            "endDate": "2024-02-25T09:03:30.000Z",
+            "executedDate": "2024-02-25T09:02:22.000Z",
+            "id": "0ePHs000000iQy9MAE",
+            "jobType": "recipe_v3",
+            "label": "account-csv_recipe",
+            "licenseAttributes": {
+                "type": "einsteinanalytics"
+            },
+            "nodesUrl": "/services/data/v56.0/wave/dataflowjobs/0ePHs000000iQy9MAE/nodes",
+            "progress": 1,
+            "retryCount": 0,
+            "startDate": "2024-02-25T09:02:20.000Z",
+            "status": "Success",
+            "syncDataflows": {
+                "dataflows": []
+            },
+            "type": "dataflowjob",
+            "url": "/services/data/v56.0/wave/dataflowjobs/0ePHs000000iQy9MAE",
+            "waitTime": 2
+        }
+    ],
+    "nextPageUrl": null,
+    "url": "/services/data/v56.0/wave/dataflowjobs"
+}
+
+
+```
 - Run Status
 ![Recipe](img/recipe-run-1.png)
 - Run Details

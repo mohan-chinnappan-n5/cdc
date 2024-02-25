@@ -9,7 +9,7 @@
 
 ## Goals
 
-![goals](img/crma-recipe-run.png)
+![goals](img/crma-recipe-run2.png)
 
 ----
 

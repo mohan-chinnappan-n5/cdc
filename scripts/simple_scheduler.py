@@ -5,6 +5,9 @@ It runs on a loop using the schedule library, acting like a cron job.
 Author: Mohan Chinnappan
 Usage:
 python simple_scheduler.py -p <period> -i <interval> -f <file_path>
+Example:
+ python3 simple_scheduler.py -i 1 -f command.json 
+ 
 
 Arguments:
 - interval: Interval in minutes for scheduling the task.
